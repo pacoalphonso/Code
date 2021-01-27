@@ -5,7 +5,7 @@
 
 ### Building and Running:
 
-1. Download the code to your machine and open it in **Visual Studio**
+1. Download the code to your machine and open it in **Visual Studio** If necessary, set the debugging profile as **Development**.
 2. Open up **appsettings.json** in the **Core.Api project**. In the "Initialization" section, look for "CoreConnectionString". This is the connection string to use to create a database. Modify this as necessary.
 3. Open up **appsettings.test.json** in the **Core.Tests** project. In the "Initialization" section, look for "CoreConnectionString". Make sure that the connection string here is the same as the one in the previous step.
 4. Build and run the solution (If necessary, please set **Core.Api** as the startup project). Visual Studio should automatically take care of restoring the packages. The database should also be created with seeded values. 
@@ -66,4 +66,4 @@ The entire solution is divided into three projects: Core.Api, Core.Data, and Cor
 
     which means that the trigger is set to run at midnight. I would also configure the pipeline to run ALL test projects (**unit tests, integration tests, fully-automated UI testing, as well as any other automated tests**) as well to ensure that the code is stable everytime developers report to work.
 - In the Core.Api project is a **launchSettings.json file**. This file contains 4 profiles that match to common environments: **Development, QA, Staging**, and **Production**. The environment variable used to detect the environment is **ASPNETCORE_ENVIRONMENT**. This helps in detecting which particular settings to use based on the environment.
-    
+- The dates of the entities are all saved in **UTC Time**. This is important to do because we want to avoid saving in local time and struggle with time zone differences and daylight savings. By saving the dates in UTC time, all that the client calling our API have to do is convert it into local time. In C#, this is accomplished by using **DateTime.ToLocalTime**.
