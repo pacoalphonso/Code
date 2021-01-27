@@ -7,7 +7,7 @@
 
 ### Building and Running:
 
-1. Download the code to your machine and open it in **Visual Studio** If necessary, set the debugging profile as **Development**.
+1. Download the code to your machine and open it in **Visual Studio**. If necessary, set the debugging profile as **Development**.
 2. Open up **appsettings.json** in the **Core.Api project**. In the "Initialization" section, look for "CoreConnectionString". This is the connection string to use to create a database. Modify this as necessary.
 3. Open up **appsettings.test.json** in the **Core.Tests** project. In the "Initialization" section, look for "CoreConnectionString". Make sure that the connection string here is the same as the one in the previous step.
 4. Build and run the solution (If necessary, please set **Core.Api** as the startup project). Visual Studio should automatically take care of restoring the packages. The database should also be created with seeded values. 
@@ -33,7 +33,9 @@ Security is a feature of the web API. The account details endpoint required for 
     If we convert this to base64, it would be:
     >YXBwaWQ6ZGVmYXVsdGFwcAp1c2VybmFtZTpzdXBlcnVzZXIKcGFzc3dvcmQ6cmVhbGx5QmFkSGFyZGNvZGVkUGFzc3dvcmQ=
     
-    We can easily verify this by going to https://base64decode.org and pasting in that value in the textbox, and clicking on the Decode button. 
+    We can easily verify this by going to https://base64decode.org and pasting in that value in the textbox, and clicking on the Decode button.
+    
+    An important part of the security is linking a user with a particular app, hence the reason for adding appid in the credentials. This is important because we want to ensure that a user only uses the authorized app, not an unauthorized one.
     
     **Note:** While it is not ideal to hardcode credentials into the database and submit them to an endpoint without using TLS, I decided to do this for ease of demonstration. In the real world, we would not submit any data to an unsecured endpoint nor hardcode credentials.
     
