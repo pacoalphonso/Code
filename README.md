@@ -1,3 +1,5 @@
+![.NET](https://github.com/pacoalphonso/code/workflows/.NET/badge.svg)
+
 # Code Test
 #### Prerequisite:
 ###### Please make sure that you have .NET 5.0 installed on your machine. The .NET 5.0 SDK can be found here: 
