@@ -10,6 +10,7 @@ namespace Core.Data.Attributes
     /// </summary>
     public class RequiresPermissionAttribute : ActionFilterAttribute
     {
+        //
         /// <summary>
         /// The permission that this attribute is guarding
         /// </summary>
