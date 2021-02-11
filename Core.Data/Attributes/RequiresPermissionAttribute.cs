@@ -55,15 +55,6 @@ namespace Core.Data.Attributes
 
             var token = context.HttpContext.Request.Headers["Authorization"].ToString();
             var nOnce = context.HttpContext.Request.Headers["NOnce"].ToString();
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
             // Invalidate the NOnce, issue a new NOnce, and extend the token's duration
             //step 1: Extend the token's duration
             securityHandler.ExtendTokenDuration(token);
